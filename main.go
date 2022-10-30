@@ -1,8 +1,6 @@
 package main
 
 import (
-	"time"
-
 	"github.com/go-redis/redis"
 )
 
@@ -16,6 +14,5 @@ func main() {
 		panic(err)
 	}
 	rdb = redis.NewClient(opt)
-	// rdb.Del("chat_messages")
-	rdb.RPush("cron", time.Now().String())
+	rdb.Del("chat_messages")
 }
